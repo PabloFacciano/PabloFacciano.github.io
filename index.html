@@ -1,0 +1,849 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Marketing Cloud Developer specializing in architectural design and business scaling."
+    />
+
+    <!-- SEO Básico -->
+    <title>Pablo Facciano | Marketing Cloud Developer</title>
+    <meta
+      name="keywords"
+      content="marketing cloud, salesforce, agentforce, email developer, ssjs, ampscript, automation studio, journey builder, custom activity, developer, coding, email specialist"
+    />
+    <meta name="author" content="Pablo Facciano" />
+    <link rel="canonical" href="https://pablofacciano.tiiny.site/" />
+
+    <!-- Open Graph / Facebook / WhatsApp -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://pablofacciano.tiiny.site/" />
+    <meta
+      property="og:title"
+      content="Pablo Facciano | Marketing Cloud Developer"
+    />
+    <meta
+      property="og:description"
+      content="Marketing Cloud Developer specializing in architectural design and business scaling."
+    />
+    <meta
+      property="og:image"
+      content="https://i.ibb.co/v6NnprwN/Chat-GPT-Image-14-may-2026-02-59-39-p-m-1.png"
+    />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://pablofacciano.tiiny.site/" />
+    <meta
+      property="twitter:title"
+      content="Pablo Facciano | Marketing Cloud Developer"
+    />
+    <meta
+      property="twitter:description"
+      content="Marketing Cloud Developer specializing in architectural design and business scaling."
+    />
+
+    <!-- Datos Estructurados (JSON-LD) para Google -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "ProfessionalService",
+        "name": "Rocio Deniz - Consultora en Marketing & Diseño",
+        "image": "https://i.ibb.co/v6NnprwN/Chat-GPT-Image-14-may-2026-02-59-39-p-m-1.png",
+        "description": "Marketing Cloud Developer specializing in architectural design and business scaling.",
+        "url": "https://pablofacciano.tiiny.site/",
+        "address": {
+          "@type": "PostalAddress",
+          "addressCountry": "AR"
+        },
+        "serviceType": [
+          "Salesforce",
+          "Marketing Cloud",
+          "Development",
+          "Coding"
+        ]
+      }
+    </script>
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        font-family: "Inter", sans-serif;
+        background-color: #1a1a1a;
+        color: #ffffff;
+        scroll-behavior: smooth;
+      }
+      .hero-gradient {
+        background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+      }
+      .card-bg {
+        background-color: #262626;
+      }
+      .accent-blue {
+        background-color: #0077b5;
+      }
+      .section-padding {
+        padding: 5rem 1.25rem;
+      }
+      @media (min-width: 1024px) {
+        .section-padding {
+          padding: 8rem 10%;
+        }
+      }
+      [v-cloak] {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app" v-cloak>
+      <!-- Navigation / Language Toggle -->
+      <nav class="fixed top-0 w-full z-50 flex justify-end p-6 bg-transparent">
+        <div
+          class="flex items-center space-x-2 text-sm font-semibold bg-neutral-800 p-4 rounded-lg"
+        >
+          <button
+            @click="setLang('es')"
+            :class="currentLang === 'es' ? 'text-white' : 'text-gray-500 hover:text-white transition'"
+          >
+            ESPAÑOL
+          </button>
+          <span class="text-gray-600">|</span>
+          <button
+            @click="setLang('en')"
+            :class="currentLang === 'en' ? 'text-white' : 'text-gray-500 hover:text-white transition'"
+          >
+            ENGLISH
+          </button>
+        </div>
+      </nav>
+
+      <!-- Hero Section -->
+      <header
+        class="hero-gradient min-h-screen flex flex-col lg:flex-row items-center relative overflow-hidden"
+      >
+        <div
+          class="w-full mt-20 lg:mt-0 lg:w-1/2 section-padding flex flex-col justify-center z-10 p-12 lg:ps-20"
+        >
+          <h1 class="text-5xl lg:text-7xl font-extrabold mb-4">
+            {{ t.hero.name }}
+          </h1>
+          <p
+            class="text-xl lg:text-2xl text-gray-300 font-light max-w-lg mb-8 leading-relaxed"
+          >
+            {{ t.hero.title }}
+          </p>
+          <p class="text-lg text-gray-400 mb-10 max-w-md">
+            {{ t.hero.subtitle }}
+          </p>
+          <a
+            :href="'mailto:' + email"
+            class="accent-blue hover:opacity-90 text-white font-bold py-4 px-10 rounded-sm w-max transition-all shadow-lg uppercase tracking-wider text-sm"
+          >
+            {{ t.common.contact }}
+          </a>
+        </div>
+        <div
+          class="w-full lg:w-1/2 h-full flex items-end justify-end self-end lg:justify-end mt-12 sm:mt-0 relative"
+        >
+          <div
+            class="w-full max-w-md lg:max-w-xl aspect-[3/4] relative transition-all duration-700"
+          >
+            <img
+              src="https://i.ibb.co/v6NnprwN/Chat-GPT-Image-14-may-2026-02-59-39-p-m-1.png"
+              alt="Pablo Facciano"
+              class="w-full h-full object-cover opacity-80"
+            />
+          </div>
+        </div>
+      </header>
+
+      <!-- About Me -->
+      <section class="section-padding bg-[#1a1a1a]">
+        <h2 class="text-3xl font-bold mb-8">{{ t.about.title }}</h2>
+        <p class="text-xl text-gray-400 max-w-4xl leading-relaxed">
+          {{ t.about.content }}
+        </p>
+      </section>
+
+      <!-- Success Cases -->
+      <section class="section-padding bg-[#111111]">
+        <div class="max-w-6xl">
+          <h2 class="text-3xl font-bold mb-4">{{ t.cases.title }}</h2>
+          <p class="text-lg text-gray-400 mb-12">{{ t.cases.subtitle }}</p>
+
+          <div class="grid lg:grid-cols-2 gap-8">
+            <div
+              v-for="item in t.cases.items"
+              :key="item.title"
+              class="card-bg p-8 rounded-sm hover:translate-y-[-4px] transition-transform duration-300"
+            >
+              <div class="flex items-start mb-6">
+                <span class="text-yellow-500 mr-3 mt-1"
+                  ><i :class="item.icon"></i
+                ></span>
+                <h3 class="text-xl font-bold">{{ item.title }}</h3>
+              </div>
+              <p
+                class="text-gray-400 text-sm mb-8 leading-relaxed"
+                v-html="item.description"
+              ></p>
+
+              <!-- Visual Process Flow Simulation -->
+              <div
+                class="flex items-center justify-between mb-8 overflow-x-auto pb-2"
+              >
+                <div
+                  v-for="(icon, idx) in item.process"
+                  :key="idx"
+                  class="flex items-center"
+                >
+                  <div
+                    class="w-10 h-10 flex items-center justify-center grayscale hover:grayscale-0 transition"
+                  >
+                    <i :class="icon" class="text-2xl opacity-70"></i>
+                  </div>
+                  <span
+                    v-if="idx < item.process.length - 1"
+                    class="mx-3 text-gray-600"
+                    >→</span
+                  >
+                </div>
+              </div>
+
+              <div class="flex flex-wrap gap-2">
+                <span
+                  v-for="tag in item.tags"
+                  :key="tag"
+                  class="bg-neutral-800 text-gray-400 text-[10px] px-2 py-1 rounded-sm uppercase font-bold border border-neutral-700"
+                >
+                  {{ tag }}
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Call to Action Banner -->
+      <section
+        class="py-20 px-8 bg-[#1e4e79] flex flex-col items-center text-center"
+      >
+        <h2 class="text-3xl font-bold mb-4">{{ t.cta1.title }}</h2>
+        <p class="text-lg text-blue-200 mb-8">{{ t.cta1.subtitle }}</p>
+        <a
+          :href="'mailto:' + email"
+          class="bg-[#0077b5] hover:bg-[#006699] text-white font-bold py-3 px-10 rounded-sm transition uppercase text-sm"
+        >
+          {{ t.common.contact }}
+        </a>
+      </section>
+
+      <!-- Skills -->
+      <section class="section-padding bg-[#1a1a1a]">
+        <h2 class="text-3xl font-bold mb-2">{{ t.skills.title }}</h2>
+        <p class="text-gray-400 mb-12">{{ t.skills.subtitle }}</p>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-12">
+          <div
+            v-for="skill in t.skills.items"
+            :key="skill.category"
+            class="space-y-4"
+          >
+            <div class="flex items-center gap-4 mb-6">
+              <div
+                class="w-12 h-12 flex items-center justify-center bg-neutral-800 rounded-lg"
+              >
+                <i :class="skill.icon" class="text-2xl text-blue-400"></i>
+              </div>
+              <h3 class="text-lg font-bold">{{ skill.category }}</h3>
+            </div>
+            <ul class="space-y-3">
+              <li
+                v-for="point in skill.points"
+                :key="point"
+                class="text-gray-400 text-sm flex items-start"
+              >
+                <span class="text-blue-500 mr-2">•</span>
+                {{ point }}
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- Certifications -->
+      <section class="section-padding bg-[#111111]">
+        <h2 class="text-3xl font-bold mb-2">{{ t.certs.title }}</h2>
+        <p class="text-gray-400 mb-12">{{ t.certs.subtitle }}</p>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div
+            v-for="cert in t.certs.items"
+            :key="cert.name"
+            class="flex gap-4"
+          >
+            <div class="shrink-0">
+              <div class="w-20 h-20 flex items-center justify-center">
+                <i
+                  v-if="!cert.img"
+                  class="fas fa-medal text-blue-500 text-xl"
+                ></i>
+                <img v-if="cert.img" :src="cert.img" :alt="cert.name" />
+              </div>
+            </div>
+            <div>
+              <h4
+                class="font-bold text-sm text-blue-400 uppercase tracking-tighter"
+              >
+                {{ cert.name }}
+              </h4>
+              <p class="text-xs text-gray-500 mb-2">{{ cert.org }}</p>
+              <p class="text-gray-400 text-xs leading-relaxed">
+                {{ cert.description }}
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Final CTA -->
+      <section
+        class="py-20 px-8 bg-[#1e4e79] flex flex-col items-center text-center"
+      >
+        <h2 class="text-3xl font-bold mb-4">{{ t.cta2.title }}</h2>
+        <p class="text-lg text-blue-200 mb-8">{{ t.cta2.subtitle }}</p>
+        <a
+          :href="'mailto:' + email"
+          class="bg-[#0077b5] hover:bg-[#006699] text-white font-bold py-3 px-10 rounded-sm transition uppercase text-sm"
+        >
+          {{ t.common.contact }}
+        </a>
+      </section>
+
+      <!-- Footer -->
+      <footer class="bg-[#111111] py-12 px-8">
+        <div
+          class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8"
+        >
+          <div>
+            <h3 class="text-xl font-bold">{{ t.hero.name }}</h3>
+            <p class="text-gray-500 text-sm">{{ t.hero.title }}</p>
+          </div>
+          <div class="flex gap-6">
+            <a
+              href="https://github.com/PabloFacciano/"
+              class="text-2xl text-gray-500 hover:text-white transition"
+              ><i class="fab fa-github"></i
+            ></a>
+            <a
+              href="http://linkedin.com/in/pablofacciano/"
+              class="text-2xl text-gray-500 hover:text-white transition"
+              ><i class="fab fa-linkedin"></i
+            ></a>
+          </div>
+        </div>
+        <div
+          class="mt-12 text-center text-gray-600 text-[10px] uppercase tracking-widest"
+        >
+          © {{ currentYear }} Pablo Facciano. All rights reserved.
+        </div>
+      </footer>
+    </div>
+
+    <script>
+      const { createApp, ref, computed, onMounted } = Vue;
+
+      const content = {
+        en: {
+          common: { contact: "Contact me" },
+          hero: {
+            name: "Pablo Facciano",
+            title:
+              "Marketing Cloud Developer, designing architectures that scale your business.",
+            subtitle: "Open to new projects to drive your marketing strategy.",
+          },
+          about: {
+            title: "About me",
+            content:
+              "Over 8 years of experience as a Marketing Cloud Developer. Focused on architecture and development of customized solutions on the platform, achieving quality deliveries with high NPS feedback scores.",
+          },
+          cases: {
+            title: "Success Cases",
+            subtitle:
+              "Over the course of my career as a developer, I have created a variety of custom solutions tailored to my customer's needs.",
+            items: [
+              {
+                title: "Messaging Custom Activities",
+                icon: "fas fa-bolt",
+                description:
+                  "A customer needed to deliver over <strong>100,000 messages</strong> per day via Microsoft Teams in real-time, and monitoring behavior inside Marketing Cloud.<br><br>I developed a <strong>Node.js</strong> middleware application hosted on <strong>AWS Lambda</strong> that processed messages from an <strong>AWS SQS queue</strong> and kept a running track of delivery via an <strong>API call back</strong> to SFMC data extensions using REST API.<br><br>I reduced the time required to send internal messages from several days to <strong>less than 12 hours</strong>.",
+                process: [
+                  "fab fa-salesforce",
+                  "fab fa-aws",
+                  "fab fa-node-js",
+                  "fab fa-microsoft",
+                ],
+                tags: [
+                  "SFMC Journey Builder",
+                  "Custom Activity",
+                  "AWS API Gateway",
+                  "AWS Lambda",
+                  "AWS SQS Queue",
+                  "API REST",
+                ],
+              },
+              {
+                title: "Internal Segmentation App",
+                icon: "fas fa-users",
+                description:
+                  "Several non-technical members of the team needed to generate segments based on advanced criteria but lacked knowledge of SQL queries.<br><br>To solve this problem, I developed an application that allowed users to drag-and-drop different logical filters behind the scenes, then <strong>SQL query</strong> was generated manually, executed automation, and returned the number of records included in the segment.<br><br>I reduced the team's reliance on the technical team, thereby increasing the efficiency in 20% almost every of my consulting tasks.",
+                process: [
+                  "fab fa-salesforce",
+                  "fas fa-exchange-alt",
+                  "fas fa-desktop",
+                ],
+                tags: [
+                  "SFMC Automation Studio",
+                  "SQL Query",
+                  "VUEJS",
+                  "HTML",
+                  "CSS",
+                  "Serverless",
+                  "REST API",
+                  "JS",
+                  "SSJS",
+                ],
+              },
+            ],
+          },
+          cta1: {
+            title: "Interested in my profile?",
+            subtitle: "Let's schedule a meeting and discuss the next steps.",
+          },
+          skills: {
+            title: "Skills",
+            subtitle:
+              "Marketing process automation and application hosting at:",
+            items: [
+              {
+                category: "Salesforce Marketing Cloud Engagement",
+                icon: "fab fa-salesforce",
+                points: [
+                  "SFMC Setup & Campaigns",
+                  "Data Model & Segmentation using SQL",
+                  "Integrations using REST API and SFTP server",
+                  "CloudPage, Emails and forms personalization with AMPScript",
+                  "SSJS for advanced automation tasks in Automation Studio and Cloudpages",
+                  "Custom Activities development for new Channels like WebPush",
+                  "Omnichannel campaign execution in Journey Builder",
+                ],
+              },
+              {
+                category: "Amazon Web Services (AWS)",
+                icon: "fab fa-aws",
+                points: [
+                  "Messaging applications running in Serverless components using Lambda, API Gateway, SQS Queue",
+                  "Hosting of Static SPA websites using S3 and CloudFront",
+                ],
+              },
+              {
+                category: "Salesforce CRM | Sales & Service Cloud",
+                icon: "fab fa-salesforce",
+                points: [
+                  "Agentforce Setup & Development",
+                  "Admin related tasks in Setup",
+                  "Aura components and Apex development",
+                  "Flow automations",
+                ],
+              },
+            ],
+          },
+          certs: {
+            title: "Certifications",
+            subtitle:
+              "They confirm my knowledge and experience in the Salesforce cloud.",
+            items: [
+              {
+                img: "https://i.ibb.co/209f0qQT/servlet-14.png",
+                name: "Agentforce Specialist",
+                org: "Salesforce Certified Agentforce Specialist",
+                description:
+                  "I specialize in architecting and optimizing autonomous AI agents, leveraging a deep understanding of Salesforce platform configurations and Agentforce capabilities to drive intelligent automation.",
+              },
+              {
+                img: "https://i.ibb.co/wFW4FgZh/servlet-13.png",
+                name: "AI Associate",
+                org: "Salesforce Certified AI Associate",
+                description:
+                  "I provide strategic guidance on AI implementation, ensuring all initiatives are grounded in Salesforce’s Trusted AI Principles to deliver ethical, data-driven stakeholder decisions.",
+              },
+              {
+                img: "https://i.ibb.co/v4PNwsXd/servlet-12.png",
+                name: "Data 360",
+                org: "Salesforce Certified Data 360 Consultant",
+                description:
+                  "I help organizations build a unified view of their customers by implementing enterprise-grade data platforms and consulting on complex data integration strategies.",
+              },
+              {
+                img: "https://i.ibb.co/ks6NLrq8/servlet-11.png",
+                name: "SFMC Email Specialist",
+                org: "Salesforce Certified Marketing Cloud Email Specialist",
+                description:
+                  "I am an expert in full-lifecycle email marketing, from responsive message design and subscriber segmentation to deliverability optimization and external data integrations.",
+              },
+              {
+                img: "https://i.ibb.co/5hYJVm3T/servlet-10.png",
+                name: "SFMC Admin",
+                org: "Salesforce Certified Marketing Cloud Engagement Administrator",
+                description:
+                  "I manage the operational health of Marketing Cloud environments, overseeing setup, data structure management, and the implementation of platform security best practices.",
+              },
+              {
+                img: "https://i.ibb.co/kVcW6LVQ/servlet-9.png",
+                name: "SFMC Consultant",
+                org: "Salesforce Certified Marketing Cloud Engagement Consultant",
+                description:
+                  "I bridge the gap between business needs and technical execution, designing complex multi-channel campaign solutions that leverage the full power of the Marketing Cloud stack.",
+              },
+              {
+                img: "https://i.ibb.co/0bJYQBQ/servlet-8.png",
+                name: "SFMC Developer",
+                org: "Salesforce Certified Marketing Cloud Engagement Developer",
+                description:
+                  "I develop custom platform solutions using AMPscript, SSJS, and SQL to create highly dynamic, personalized customer experiences and complex technical integrations.",
+              },
+              {
+                img: "https://i.ibb.co/B5QBKCnN/servlet-7.png",
+                name: "Reporting & Analytics",
+                org: "Marketing Cloud Account Engagement Reporting & Analytics Accredited Professional",
+                description:
+                  "I design and implement advanced reporting frameworks within Account Engagement, transforming raw marketing data into actionable business intelligence.",
+              },
+              {
+                img: "https://i.ibb.co/qhNGqfS/servlet-6.png",
+                name: "Advanced Cross Channel",
+                org: "Marketing Cloud Advanced Cross Channel Accredited Professional",
+                description:
+                  "I orchestrate complex, multi-touch customer journeys, ensuring seamless brand experiences across email, mobile, social, and web channels.",
+              },
+              {
+                img: "https://i.ibb.co/NdFnR6CS/servlet-5.png",
+                name: "Marketing Cloud Personalization",
+                org: "Marketing Cloud Personalization Accredited Professional",
+                description:
+                  "I specialize in real-time personalization, configuring and deploying sophisticated web and email experiences that adapt to individual user behavior.",
+              },
+              {
+                img: "https://i.ibb.co/S4ng9tvb/servlet-4.png",
+                name: "SFMC AE Consultant",
+                org: "Salesforce Certified Marketing Cloud Account Engagement Consultant",
+                description:
+                  "I design end-to-end B2B marketing automation solutions, aligning Account Engagement (Pardot) capabilities with high-level business requirements for long-term growth.",
+              },
+              {
+                img: "https://i.ibb.co/ks6NLrq8/servlet-11.png",
+                name: "SFMC AE Specialist",
+                org: "Salesforce Certified Marketing Cloud Account Engagement Specialist",
+                description:
+                  "I build and implement strategic marketing workflows, focusing on lead scoring, nurturing, and high-conversion automation within the Account Engagement platform.",
+              },
+              {
+                img: "https://i.ibb.co/WWkq7brp/servlet-2.png",
+                name: "Salesforce Admin",
+                org: "Salesforce Certified Platform Administrator",
+                description:
+                  "I manage and secure the Salesforce lifecycle, ensuring organizational health by maintaining users, data, and apps while maximizing the value of the core CRM platform.",
+              },
+              {
+                img: "https://i.ibb.co/Y7P83LtR/servlet-1.png",
+                name: "Salesforce App Builder",
+                org: "Salesforce Certified Platform App Builder",
+                description:
+                  "I design and deploy custom business applications using declarative tools, extending Salesforce’s core functionality without the need for custom code.",
+              },
+              {
+                img: "https://i.ibb.co/FkRYpZYg/servlet.png",
+                name: "Platform Foundations",
+                org: "Salesforce Certified Platform Foundations",
+                description:
+                  "I possess a comprehensive understanding of how the integrated Salesforce CRM platform connects departments and unifies customer data to solve modern business challenges.",
+              },
+            ],
+          },
+          cta2: {
+            title: "Are you ready to get started?",
+            subtitle: "Let's schedule a meeting and discuss the next steps.",
+          },
+        },
+        es: {
+          common: { contact: "Contáctame" },
+          hero: {
+            name: "Pablo Facciano",
+            title:
+              "Marketing Cloud Developer, diseñando arquitecturas que escalan tu negocio.",
+            subtitle:
+              "Abierto a nuevos proyectos para impulsar tu estrategia de marketing.",
+          },
+          about: {
+            title: "Sobre mí",
+            content:
+              "Más de 8 años de experiencia como Marketing Cloud Developer. Enfocado en la arquitectura y el desarrollo de soluciones personalizadas en la plataforma, logrando entregas de calidad con altos puntajes de feedback NPS.",
+          },
+          cases: {
+            title: "Casos de Éxito",
+            subtitle:
+              "A lo largo de mi carrera como desarrollador, he creado una variedad de soluciones personalizadas adaptadas a las necesidades de mis clientes.",
+            items: [
+              {
+                title: "Actividades Personalizadas de Mensajería",
+                icon: "fas fa-bolt",
+                description:
+                  "Un cliente necesitaba entregar más de <strong>100,000 mensajes</strong> por día vía Microsoft Teams en tiempo real, y monitorear el comportamiento dentro de Marketing Cloud.<br><br>Desarrollé una aplicación middleware en <strong>Node.js</strong> alojada en <strong>AWS Lambda</strong> que procesaba mensajes de una <strong>cola AWS SQS</strong> y mantenía un seguimiento de la entrega mediante una <strong>llamada API REST</strong> a la Data Extension de Sendlog de SFMC.<br><br>Reduje el tiempo requerido para enviar mensajes internos de varios días a <strong>menos de 12 horas</strong>.",
+                process: [
+                  "fab fa-salesforce",
+                  "fab fa-aws",
+                  "fab fa-node-js",
+                  "fab fa-microsoft",
+                ],
+                tags: [
+                  "SFMC Journey Builder",
+                  "Custom Activity",
+                  "AWS API Gateway",
+                  "AWS Lambda",
+                  "AWS SQS Queue",
+                  "API REST",
+                ],
+              },
+              {
+                title: "App de Segmentación Interna",
+                icon: "fas fa-users",
+                description:
+                  "Varios miembros no técnicos del equipo necesitaban generar segmentos basados en criterios avanzados pero sin conocimientos de consultas SQL.<br><br>Para resolver este problema, desarrollé una aplicación que permitía a los usuarios arrastrar y soltar diferentes filtros lógicos, luego por detrás se generaba la <strong>consulta SQL</strong> automaticamente, se ejecutaba la automatización y devolvía el número de registros incluidos en el segmento.<br><br>Reduje la dependencia del equipo técnico, aumentando así la eficiencia en un 20% en las tareas de consultoría.",
+                process: [
+                  "fab fa-salesforce",
+                  "fas fa-exchange-alt",
+                  "fas fa-desktop",
+                ],
+                tags: [
+                  "SFMC Automation Studio",
+                  "SQL Query",
+                  "VUE | Vue 3 | Vue.js",
+                  "HTML",
+                  "CSS",
+                  "Serverless",
+                  "REST API",
+                  "JS",
+                  "SSJS",
+                ],
+              },
+            ],
+          },
+          cta1: {
+            title: "¿Interesado en mi perfil?",
+            subtitle:
+              "Agendemos una reunión y hablemos sobre los próximos pasos.",
+          },
+          skills: {
+            title: "Habilidades",
+            subtitle:
+              "Automatización de procesos de marketing y alojamiento de aplicaciones en:",
+            items: [
+              {
+                category: "Salesforce Marketing Cloud Engagement",
+                icon: "fab fa-salesforce",
+                points: [
+                  "Configuración y ejecución de Campañas en SFMC",
+                  "Modelo de Datos y Segmentación usando SQL",
+                  "Integraciones usando REST API y servidor SFTP",
+                  "Desarrollo de formularios y CloudPages con AMPScript",
+                  "SSJS para tareas de automatización avanzada en Automation Studio y Cloudpages",
+                  "Desarrollo de Actividades Personalizadas para Journey",
+                  "Ejecución de campañas omnicanal en Journey Builder",
+                ],
+              },
+              {
+                category: "Amazon Web Services (AWS)",
+                icon: "fab fa-aws",
+                points: [
+                  "Aplicaciones de mensajería ejecutándose en componentes Serverless usando Lambda, API Gateway, SQS Queue",
+                  "Alojamiento de sitios web estáticos SPA usando S3 y CloudFront",
+                ],
+              },
+              {
+                category: "Salesforce CRM | Sales & Service Cloud",
+                icon: "fab fa-salesforce",
+                points: [
+                  "Tareas relacionadas a Admin en Setup",
+                  "Desarrollo de componentes Aura",
+                  "Automatizaciones con Flow",
+                  "Creación de Agentes de IA utilizando Agentforce",
+                ],
+              },
+            ],
+          },
+          certs: {
+            title: "Certificaciones",
+            subtitle:
+              "Confirman mi conocimiento y experiencia en la nube de Salesforce.",
+            items: [
+              {
+                img: "https://i.ibb.co/209f0qQT/servlet-14.png",
+                name: "Agentforce Specialist",
+                org: "Salesforce Certified Agentforce Specialist",
+                description:
+                  "Me especializo en la arquitectura y optimización de agentes de IA autónomos, aprovechando un profundo conocimiento de las configuraciones de la plataforma Salesforce y las capacidades de Agentforce para impulsar la automatización inteligente.",
+              },
+              {
+                img: "https://i.ibb.co/wFW4FgZh/servlet-13.png",
+                name: "AI Associate",
+                org: "Salesforce Certified AI Associate",
+                description:
+                  "Brindo orientación estratégica sobre la implementación de IA, asegurando que todas las iniciativas se basen en los Principios de IA Confiable de Salesforce para ofrecer decisiones éticas y basadas en datos a las partes interesadas.",
+              },
+              {
+                img: "https://i.ibb.co/v4PNwsXd/servlet-12.png",
+                name: "Data 360",
+                org: "Salesforce Certified Data 360 Consultant",
+                description:
+                  "Ayudo a las organizaciones a construir una visión unificada de sus clientes mediante la implementación de plataformas de datos de nivel empresarial y la consultoría en estrategias complejas de integración de datos.",
+              },
+              {
+                img: "https://i.ibb.co/ks6NLrq8/servlet-11.png",
+                name: "SFMC Email Specialist",
+                org: "Salesforce Certified Marketing Cloud Email Specialist",
+                description:
+                  "Soy experto en el ciclo de vida completo del marketing por correo electrónico, desde el diseño de mensajes adaptables y la segmentación de suscriptores hasta la optimización de la entregabilidad e integraciones de datos externos.",
+              },
+              {
+                img: "https://i.ibb.co/5hYJVm3T/servlet-10.png",
+                name: "SFMC Admin",
+                org: "Salesforce Certified Marketing Cloud Engagement Administrator",
+                description:
+                  "Gestiono la salud operativa de los entornos de Marketing Cloud, supervisando la configuración, la gestión de la estructura de datos y la implementación de las mejores prácticas de seguridad de la plataforma.",
+              },
+              {
+                img: "https://i.ibb.co/kVcW6LVQ/servlet-9.png",
+                name: "SFMC Consultant",
+                org: "Salesforce Certified Marketing Cloud Engagement Consultant",
+                description:
+                  "Cierro la brecha entre las necesidades comerciales y la ejecución técnica, diseñando soluciones complejas de campañas multicanal que aprovechan todo el potencial de la suite de Marketing Cloud.",
+              },
+              {
+                img: "https://i.ibb.co/0bJYQBQ/servlet-8.png",
+                name: "SFMC Developer",
+                org: "Salesforce Certified Marketing Cloud Engagement Developer",
+                description:
+                  "Desarrollo soluciones personalizadas en la plataforma utilizando AMPscript, SSJS y SQL para crear experiencias de cliente altamente dinámicas y personalizadas, así como integraciones técnicas complejas.",
+              },
+              {
+                img: "https://i.ibb.co/B5QBKCnN/servlet-7.png",
+                name: "Reporting & Analytics",
+                org: "Marketing Cloud Account Engagement Reporting & Analytics Accredited Professional",
+                description:
+                  "Diseño e implemento marcos de informes avanzados dentro de Account Engagement, transformando datos de marketing sin procesar en inteligencia empresarial accionable.",
+              },
+              {
+                img: "https://i.ibb.co/qhNGqfS/servlet-6.png",
+                name: "Advanced Cross Channel",
+                org: "Marketing Cloud Advanced Cross Channel Accredited Professional",
+                description:
+                  "Orquesto recorridos de cliente complejos y multitáctiles, asegurando experiencias de marca fluidas a través de canales de correo electrónico, móviles, redes sociales y web.",
+              },
+              {
+                img: "https://i.ibb.co/NdFnR6CS/servlet-5.png",
+                name: "Marketing Cloud Personalization",
+                org: "Marketing Cloud Personalization Accredited Professional",
+                description:
+                  "Me especializo en personalización en tiempo real, configurando y desplegando experiencias sofisticadas en web y correo electrónico que se adaptan al comportamiento individual del usuario.",
+              },
+              {
+                img: "https://i.ibb.co/S4ng9tvb/servlet-4.png",
+                name: "SFMC AE Consultant",
+                org: "Salesforce Certified Marketing Cloud Account Engagement Consultant",
+                description:
+                  "Diseño soluciones de automatización de marketing B2B de extremo a extremo, alineando las capacidades de Account Engagement (Pardot) con los requisitos comerciales de alto nivel para el crecimiento a largo plazo.",
+              },
+              {
+                img: "https://i.ibb.co/ks6NLrq8/servlet-11.png",
+                name: "SFMC AE Specialist",
+                org: "Salesforce Certified Marketing Cloud Account Engagement Specialist",
+                description:
+                  "Construyo e implemento flujos de trabajo de marketing estratégicos, centrándome en la puntuación de clientes potenciales (lead scoring), nutrición y automatización de alta conversión dentro de la plataforma Account Engagement.",
+              },
+              {
+                img: "https://i.ibb.co/WWkq7brp/servlet-2.png",
+                name: "Salesforce Admin",
+                org: "Salesforce Certified Platform Administrator",
+                description:
+                  "Gestiono y aseguro el ciclo de vida de Salesforce, garantizando la salud organizacional mediante el mantenimiento de usuarios, datos y aplicaciones, mientras maximizo el valor de la plataforma CRM principal.",
+              },
+              {
+                img: "https://i.ibb.co/Y7P83LtR/servlet-1.png",
+                name: "Salesforce App Builder",
+                org: "Salesforce Certified Platform App Builder",
+                description:
+                  "Diseño y despliego aplicaciones empresariales personalizadas utilizando herramientas declarativas, extendiendo la funcionalidad principal de Salesforce sin necesidad de código personalizado.",
+              },
+              {
+                img: "https://i.ibb.co/FkRYpZYg/servlet.png",
+                name: "Platform Foundations",
+                org: "Salesforce Certified Platform Foundations",
+                description:
+                  "Poseo una comprensión integral de cómo la plataforma integrada Salesforce CRM conecta departamentos y unifica los datos de los clientes para resolver los desafíos comerciales modernos.",
+              },
+            ],
+          },
+          cta2: {
+            title: "¿Estás listo para comenzar?",
+            subtitle:
+              "Agendemos una reunión y hablemos sobre los próximos pasos.",
+          },
+        },
+      };
+
+      const App = {
+        setup() {
+          const currentLang = ref("en");
+          const email = ref("pablo.e.facciano@gmail.com");
+          const currentYear = ref(new Date().getFullYear());
+
+          const t = computed(() => content[currentLang.value]);
+
+          const setLang = (lang) => {
+            currentLang.value = lang;
+            document.documentElement.lang = lang;
+          };
+
+          onMounted(() => {
+            const browserLang = navigator.language.split("-")[0];
+            if (content[browserLang]) {
+              setLang(browserLang);
+            }
+          });
+
+          return {
+            currentLang,
+            email,
+            currentYear,
+            t,
+            setLang,
+          };
+        },
+      };
+
+      createApp(App).mount("#app");
+    </script>
+  </body>
+</html>
